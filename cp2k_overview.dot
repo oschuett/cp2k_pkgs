@@ -1,0 +1,20 @@
+digraph cp2k {
+force_eval -> program [color=red];
+subsys -> motion [color=red];
+motion -> subsys [color=black];
+program -> force_eval [color=black];
+common -> force_eval [color=red];
+force_eval -> common [color=black];
+program -> motion [color=black];
+subsys -> force_eval [color=red];
+motion -> force_eval [color=black];
+force_eval -> subsys [color=black];
+common -> subsys [color=red];
+program -> subsys [color=black];
+motion -> common [color=black];
+motion -> program [color=black];
+subsys -> common [color=black];
+subsys -> program [color=red];
+force_eval -> motion [color=red];
+program -> common [color=black];
+}
