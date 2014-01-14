@@ -31,6 +31,7 @@ def read_mod2pkg():
 def main():
     moddeps = eval(open("cp2k_moddeps.txt").read())
     mod2pkg = read_mod2pkg()
+
     mod2pkg = dict([(k, v.split("/",1)[0]) for k,v in mod2pkg.items()])
 
     bad_links = [('common', 'subsys'),
@@ -79,11 +80,12 @@ def main():
     f.write("digraph cp2k {\n")
     for a, b in all_links:
         if(a in hide_pkgs or b in hide_pkgs): continue
+        #if(not a.startswith("common") or not b.startswith("common")): continue
         color = 'black'
         for a2, b2 in bad_links:
             if(a==a2 and b==b2):
                 color = 'red'
-        f.write("%s -> %s [color=%s];\n"%(a,b,color))
+        f.write('"%s" -> "%s" [color=%s];\n'%(a,b,color))
 
     f.write("}\n")
     f.close()
