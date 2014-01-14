@@ -39,11 +39,14 @@ def main():
                  ('common', 'program'),
                  ('common', 'motion'),
                  ('common', 'cp_base'),
-                 ('force_eval', 'motion'),
-                 ('force_eval', 'program'),
-                 ('subsys','force_eval'),
-                 ('subsys','motion'),
-                 ('subsys','program'), ]
+                 #('force_eval', 'motion'),
+                 #('force_eval', 'program'),
+               #  ('subsys','force_eval'),
+               #  ('subsys','motion'),
+               #  ('subsys','program'),
+                 #('force_eval','program'),
+                 #('motion','program'),
+                ]
 
     #all_mods = set()
     all_links = set()
@@ -59,7 +62,8 @@ def main():
 
             for a, b in bad_links:
                 if(this_pkg==a and p==b):
-                    print this_pkg+" depends on "+p+" becaus "+this_mod+" uses "+m
+                    print "%s -> %s   because:    %s -> %s"%(this_pkg.center(10), p.center(10), this_mod.center(20), m)
+                    #print this_pkg+"\t -> \t"+p+" \t\t because "+this_mod+" \t\t -> "+m
 
             all_links.add( (this_pkg, p) )
 

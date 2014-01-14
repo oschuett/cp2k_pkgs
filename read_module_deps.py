@@ -19,7 +19,7 @@ def main():
     f = open("cp2k_moddeps.txt", "w")
     f.write(pformat(all_mods))
     f.close()
-        
+
 #=============================================================================
 main()
 #EOF

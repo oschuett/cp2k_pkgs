@@ -75,48 +75,6 @@ topology_util.F
 topology_xtl.F
 topology_xyz.F
 
-=== subsys/distribution ===
-distribution_1d_types.F
-distribution_2d_types.F
-distribution_methods.F
-distribution_optimize.F
-
-=== subsys/ps_wavelet ===
-ps_wavelet_base.F
-ps_wavelet_fft3d.F
-ps_wavelet_kernel.F
-ps_wavelet_scaling_function.F
-ps_wavelet_types.F
-ps_wavelet_util.F
-lazy.F
-
-=== subsys/pw ===
-cp_linked_list_rs.F
-cp_linked_list_pw.F
-pw_env_methods.F
-pw_env_types.F
-pw_grid_info.F
-pw_grids.F
-pw_grid_types.F
-pw_methods_cuda.F
-pw_methods.F
-pw_poisson_methods.F
-pw_poisson_types.F
-pw_pool_types.F
-pw_spline_utils.F
-pw_types.F
-realspace_grid_cube.F
-realspace_grid_types.F
-dg_rho0_types.F
-dg_types.F
-cube_utils.F
-bessel_lib.F
-fft_tools.F
-lgrid_types.F
-mt_util.F
-gaussian_gridlevels.F
-input_cp2k_rsgrid.F
-
 === motion/gopt ===
 bfgs_optimizer.F
 cell_opt.F
@@ -325,6 +283,20 @@ library_tests.F
 optimize_input.F
 input_optimize_input.F
 
+=== cp_base/input ===
+input_constants.F
+input_enumeration_types.F
+input_keyword_types.F
+input_parsing.F
+input_section_types.F
+input_val_types.F
+cp_linked_list_val.F
+
+=== cp_base/distribution ===
+input_cp2k_distribution.F
+distribution_methods.F
+distribution_optimize.F
+
 === cp_base ===
 cp2k_debug.F
 cp2k.F
@@ -336,9 +308,22 @@ environment.F
 global_types.F
 input_cp2k_check.F
 header.F
+input_cp2k_rsgrid.F
+cp2k_info.F
+cp_output_handling.F
+pw_env_types.F
+gaussian_gridlevels.F
+cp_ma_interface.F
+cp_dbcsr_output.F
+cp_spline_utils.F
+pw_poisson_read_input.F
+cp_realspace_grid_init.F
+cp_realspace_grid_cube.F
+cp_dbcsr_cp2k_link.F
 
 === common ===
-cp2k_info.F
+cp_iter_types.F
+cp_log_handling.F
 cp_error_handling.F
 termination.F
 periodic_table.F
@@ -346,10 +331,45 @@ physcon.F
 bibliography.F
 reference_manager.F
 cp_files.F
-cp_iter_types.F
-cp_log_handling.F
-cp_output_handling.F
 cp_units.F
+
+=== common/pw ===
+pw_poisson_methods.F
+pw_poisson_types.F
+cp_linked_list_rs.F
+cp_linked_list_pw.F
+pw_grid_info.F
+pw_grids.F
+pw_grid_types.F
+pw_methods_cuda.F
+pw_methods.F
+pw_pool_types.F
+pw_spline_utils.F
+pw_types.F
+realspace_grid_types.F
+realspace_grid_cube.F
+dgs.F
+structure_factors.F
+structure_factor_types.F
+dg_rho0_types.F
+dg_types.F
+cube_utils.F
+bessel_lib.F
+fft_tools.F
+lgrid_types.F
+mt_util.F
+
+=== common/ps_wavelet ===
+ps_wavelet_base.F
+ps_wavelet_fft3d.F
+ps_wavelet_kernel.F
+ps_wavelet_scaling_function.F
+ps_wavelet_types.F
+ps_wavelet_methods.F
+ps_wavelet_util.F
+lazy.F
+
+
 
 === common/utils ===
 string_table.F
@@ -396,19 +416,13 @@ dict_i4tuple_callstat.F
 dict.F
 dict_str_i4.F
 
-=== common/input ===
-input_enumeration_types.F
-input_keyword_types.F
-input_parsing.F
-input_section_types.F
-input_val_types.F
-input_constants.F
-
 === common/mpi ===
 c_mpi_calls.F
 cp_para_env.F
 cp_para_types.F
 message_passing.F
+distribution_1d_types.F
+distribution_2d_types.F
 
 === common/datastructs ===
 list.F
@@ -425,7 +439,6 @@ cp_linked_list_char.F
 cp_linked_list_int.F
 cp_linked_list_logical.F
 cp_linked_list_real.F
-cp_linked_list_val.F
 
 === common/parser ===
 cp_parser_buffer_types.F
@@ -443,7 +456,6 @@ cp_result_types.F
 
 === common/machine ===
 kinds.F
-cp_ma_interface.F
 machine_absoft.F
 machine_aix.F
 machine_cce.F
@@ -467,7 +479,6 @@ cp_dbcsr_diag.F
 cp_dbcsr_interface.F
 cp_dbcsr_methods.F
 cp_dbcsr_operations.F
-cp_dbcsr_output.F
 cp_dbcsr_types.F
 cp_dbcsr_util.F
 dbcsr_tests.F
@@ -646,6 +657,7 @@ qmmm_types.F
 qmmm_util.F
 
 === force_eval/qs ===
+pw_env_methods.F
 dkh_main.F
 paw_proj_set_types.F
 hartree_local_methods.F
@@ -985,7 +997,6 @@ almo_scf_types.F
 whittaker.F
 wiener_process.F
 damping_dipole_types.F
-dgs.F
 csvr_system_dynamics.F
 csvr_system_init.F
 csvr_system_mapping.F
@@ -1003,8 +1014,6 @@ spme.F
 statistical_methods.F
 stm_images.F
 sto_ng.F
-structure_factors.F
-structure_factor_types.F
 sap_kind_types.F
 reftraj_types.F
 reftraj_util.F
@@ -1017,7 +1026,6 @@ cpot_types.F
 mode_selective.F
 molden_utils.F
 beta_gamma_psi.F
-input_cp2k_distribution.F
 input_cp2k_properties_dft.F
 input_cp2k_resp.F
 bsse.F
