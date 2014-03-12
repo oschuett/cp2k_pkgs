@@ -212,6 +212,7 @@ rt_propagation_output.F
 rt_propagation_types.F
 rt_propagation_utils.F
 rt_propagator_init.F
+rt_delta_pulse.F
 
 === program/tmc ===
 input_cp2k_tmc.F
@@ -410,6 +411,7 @@ timings.F
 timings_report.F
 timings_types.F
 list_callstackentry.F
+list_routinereport.F
 list_routinestat.F
 list_timerenv.F
 dict_i4tuple_callstat.F
@@ -456,11 +458,12 @@ cp_result_types.F
 
 === common/machine ===
 kinds.F
+machine.F
+machine_internal.F
 machine_absoft.F
 machine_aix.F
 machine_cce.F
 machine_dec.F
-machine.F
 machine_g95.F
 machine_gfortran.F
 machine_intel.F
@@ -657,6 +660,8 @@ qmmm_types.F
 qmmm_util.F
 
 === force_eval/qs ===
+surface_dipole.F
+kg_tnadd_mat.F
 pw_env_methods.F
 dkh_main.F
 paw_proj_set_types.F
